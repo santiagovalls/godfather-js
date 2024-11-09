@@ -1,0 +1,26 @@
+/* Basic style for the skeleton loader */
+.skeleton {
+  background: #e0e0e0; /* Light gray background for loading state */
+  height: 100%; /* Adjustable height based on expected content */
+  width: 100%; /* Takes full width of the container */
+  animation: skeleton-animation 1.5s infinite ease-in-out;
+}
+
+/* Animation for the skeleton loader */
+@keyframes skeleton-animation {
+  0% {
+    background-color: #e0e0e0;
+  }
+  50% {
+    background-color: #c0c0c0; /* Darker gray for animation effect */
+  }
+  100% {
+    background-color: #e0e0e0;
+  }
+}
+
+/* Optional: Add a loading animation class for further customization */
+.loading-animation {
+  border-radius: inherit;
+  margin: 0 auto; /* Center the loader horizontally if needed */
+}

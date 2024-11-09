@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>godfather-js Test</title>
+
+    <!-- jQuery library -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Godfather CSS -->
+    <link rel="stylesheet" href="../godfather.css" />
+
+    <!-- Godfather JS -->
+    <script src="../godfather.js"></script>
+  </head>
+  <body>
+    <!-- Target div where the component will load -->
+    <div
+      id="myComponent"
+      style="height: 100px; width: 100px; border-radius: 10px"
+    ></div>
+
+    <!-- Initialize Godfather-js -->
+    <script>
+      $(document).ready(function () {
+        // Applying Godfather-js to the div with ID 'myComponent'
+        $("#myComponent").godfather({
+          componentURL: "components/navbar.html", // Path to the component to load
+          data: {
+            username: "John Doe", // Pass dynamic data here
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
