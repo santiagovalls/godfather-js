@@ -1,5 +1,6 @@
 <!-- navbar.html -->
 <nav>
+  <p>Welcome, {{username}}!</p>
   <ul>
     <li><a href="#">Home</a></li>
     <li><a href="#">About</a></li>
@@ -10,11 +11,9 @@
 
 <script>
   // Example script to change the "Contact" link text after load
-  document.addEventListener("DOMContentLoaded", function () {
-    const contactLink = document.querySelector("nav ul li:last-child a");
-    if (contactLink) {
-      contactLink.textContent = "Get in Touch!";
-      contactLink.style.color = "red"; // Change text color to red as a visual cue
-    }
-  });
+  const contactLink = document.querySelector("nav ul li:last-child a");
+  if (contactLink) {
+    contactLink.textContent = "Get in Touch!";
+    contactLink.style.color = "red"; // Change text color to red as a visual cue
+  }
 </script>

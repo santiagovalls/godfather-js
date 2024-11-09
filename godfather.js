@@ -6,6 +6,7 @@
       {
         skeletonHTML: '<div class="skeleton"></div>', // HTML for the skeleton loader
         componentURL: "/components/navbar.html", // URL of the component to load
+        data: {}, // Object to hold dynamic data for templating
       },
       options
     );
@@ -16,18 +17,24 @@
       container.find(".skeleton").addClass("loading-animation");
     };
 
-    // Function to load the component using jQuery.load()
+    // Function to replace placeholders in the HTML with data values
+    const applyTemplate = (html) => {
+      return html.replace(/\{\{(\w+)\}\}/g, function (_, key) {
+        return settings.data[key] || "";
+      });
+    };
+
+    // Function to load the component using jQuery.get()
     const loadComponent = (container) => {
-      container.load(settings.componentURL, function (response, status, xhr) {
-        if (status === "error") {
-          console.error(
-            "godfather.js - Error loading component:",
-            xhr.statusText
-          );
-        } else {
-          // Remove the skeleton after the component loads
-          container.find(".skeleton").remove();
-        }
+      $.get(settings.componentURL, function (response) {
+        // Apply templating before injecting into the container
+        const templatedHTML = applyTemplate(response);
+        container.html(templatedHTML);
+      }).fail(function (xhr) {
+        console.error(
+          "godfather.js - Error loading component:",
+          xhr.statusText
+        );
       });
     };
 
